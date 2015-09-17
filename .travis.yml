@@ -1,0 +1,26 @@
+os: osx
+
+language: node_js
+
+node_js:
+  - "0.12"
+
+git:
+  depth: 1
+
+before_install:
+  - brew update
+  - brew install ffmpeg --with-libvpx --with-libvorbis
+
+install:
+  - rm -rf ~/.nvm
+  - git clone https://github.com/creationix/nvm.git ~/.nvm
+  - source ~/.nvm/nvm.sh
+  - nvm install $NODE_VERSION
+  - node -v
+  - npm -v
+  - npm install
+
+script:
+  - ls -a
+
