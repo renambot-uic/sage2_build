@@ -3,15 +3,19 @@ os: osx
 language:
   - objective-c
 
-node_js:
-  - "0.12.7"
+env:
+  matrix:
+    - NODE_VERSION="0.12.7"
+  global:
+    - "FTP_USER=anonymous"
+    - "FTP_PASSWORD=luc@evl"
 
 git:
   depth: 1
 
 before_install:
   - brew update
-  - brew install ffmpeg --with-libvpx --with-libvorbis
+#  - brew install ffmpeg --with-libvpx --with-libvorbis
 
 install:
   - rm -rf ~/.nvm
@@ -23,5 +27,26 @@ install:
   - npm install
 
 script:
+  - git clone --depth 1 https://bitbucket.org/sage2/sage2.git
+  - ls -a
+  - cd sage2
+  - ls -a
+  - npm run in
+  - npm install kthxbai
+  - npm install yuidocjs grunt grunt-cli grunt-contrib-yuidoc
+  - npm run doc
+  - mv doc/api public
+  - cd keys
+  - ./init_webserver.cmd 127.0.0.1
+  - ./init_webserver.cmd localhost
+  - cd ..
+  - npm uninstall yuidocjs grunt grunt-cli grunt-contrib-yuidoc
+  - node_modules/.bin/kthxbai
+  - rm -fr appveyor* *.log Dockerfile doc test extras GO-scripts build .eslintrc .jshintignore .kthxbai .eslint_client_rc .jshintrc
+  - cd ..
+  - mv sage2 SAGE2
+  - tar czf sage2_mac_${NODE_VERSION}.tar.gz SAGE2
   - ls -a
 
+after_success:
+    "curl --ftp-create-dirs -T sage2_mac_${NODE_VERSION}.tar.gz -u $FTP_USER:$FTP_PASSWORD ftp://ftp.evl.uic.edu/pub/INcoming/luc/app/"
