@@ -51,6 +51,5 @@ after_success:
     "curl --ftp-create-dirs -T sage2_mac_${NODE_VERSION}.tar.gz -u $FTP_USER:$FTP_PASSWORD ftp://ftp.evl.uic.edu/pub/INcoming/luc/app/"
 
 notifications:
-  slack: sage2:0LIaEiwY4I6cSW5SN46nPTph
-
+  slack: sage2:Y0uOJzdz6G2EvLs2LA5v3I25
 
