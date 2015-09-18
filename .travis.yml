@@ -24,7 +24,6 @@ install:
   - nvm install $NODE_VERSION
   - node -v
   - npm -v
-  - npm install
 
 script:
   - git clone --depth 1 https://bitbucket.org/sage2/sage2.git
