@@ -5,7 +5,7 @@ language:
 
 env:
   matrix:
-    - NODE_VERSION="0.12.7"
+    - NODE_VERSION="6"
   global:
     - "FTP_USER=anonymous"
     - "FTP_PASSWORD=luc@evl"
