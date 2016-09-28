@@ -47,6 +47,8 @@ script:
   - mv node-v6.7.0-darwin-x64/bin/* bin
   - mv node-v6.7.0-darwin-x64/lib .
   - mv node-v6.7.0-darwin-x64/include .
+  - rm -f  node-v6.7.0-darwin-x64.tar.gz
+  - rm -fr node-v6.7.0-darwin-x64
   - cd ..
   - mv sage2 SAGE2
   - tar czf sage2_mac_${NODE_VERSION}.tar.gz SAGE2
