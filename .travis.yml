@@ -42,11 +42,11 @@ script:
   - npm uninstall yuidocjs grunt grunt-cli grunt-contrib-yuidoc
   - node_modules/.bin/kthxbai
   - rm -fr appveyor* *.log Dockerfile doc test extras GO-scripts build .eslintrc .jshintignore .kthxbai .eslint_client_rc .jshintrc
-  - curl -LsSO https://nodejs.org/dist/latest/node-v6.5.0-darwin-x64.tar.gz
-  - tar xf node-v6.5.0-darwin-x64.tar.gz
-  - mv node-v6.5.0-darwin-x64/bin/* bin
-  - mv node-v6.5.0-darwin-x64/lib .
-  - mv node-v6.5.0-darwin-x64/include .
+  - curl -LsSO https://nodejs.org/dist/latest/node-v6.7.0-darwin-x64.tar.gz
+  - tar xf node-v6.7.0-darwin-x64.tar.gz
+  - mv node-v6.7.0-darwin-x64/bin/* bin
+  - mv node-v6.7.0-darwin-x64/lib .
+  - mv node-v6.7.0-darwin-x64/include .
   - cd ..
   - mv sage2 SAGE2
   - tar czf sage2_mac_${NODE_VERSION}.tar.gz SAGE2
